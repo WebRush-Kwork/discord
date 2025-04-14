@@ -3,6 +3,7 @@ import { useContext, createContext, useEffect, useState } from 'react'
 import { io as ClientIO } from 'socket.io-client'
 
 type TSocketContext = {
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	socket: any | null
 	isConnected: boolean
 }
