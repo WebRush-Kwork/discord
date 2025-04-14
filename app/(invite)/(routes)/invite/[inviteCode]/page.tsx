@@ -1,17 +1,16 @@
 import { currentProfile } from '@/lib/current-profile'
 import { db } from '@/lib/db'
 import { redirect } from 'next/navigation'
-import { JSX } from 'react'
 
 interface IInviteCodePage {
 	params: { inviteCode: string }
 }
 
-const InviteCodePage = async ({
-	params,
-}: IInviteCodePage): Promise<JSX.Element | null> => {
+const InviteCodePage = async ({ params }: IInviteCodePage) => {
 	const profile = await currentProfile()
 	const { inviteCode } = params
+
+	if (!inviteCode) throw new Error('Invite code not found')
 
 	if (!profile || !inviteCode) return redirect('/')
 
