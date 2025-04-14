@@ -76,7 +76,7 @@ const EditChannelModal = () => {
 			form.setValue('name', channel.name)
 			form.setValue('type', channel.type)
 		}
-	}, [form, isModalOpen])
+	}, [form, isModalOpen, channel])
 
 	const handleClose = () => {
 		form.reset()

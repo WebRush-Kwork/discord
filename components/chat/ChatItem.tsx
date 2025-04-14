@@ -87,10 +87,6 @@ const ChatItem = ({
 		return () => window.removeEventListener('keydown', onKeyDown)
 	}, [])
 
-	useEffect(() => {
-		form.reset({ content })
-	}, [content])
-
 	const onSubmit = async (values: z.infer<typeof formSchema>) => {
 		try {
 			const url = qs.stringifyUrl({
@@ -106,6 +102,10 @@ const ChatItem = ({
 			setIsEditing(false)
 		}
 	}
+
+	useEffect(() => {
+		form.reset({ content })
+	}, [form, onSubmit, content])
 
 	const redirectToMember = () =>
 		currentMember.id !== member.id &&

@@ -2,7 +2,6 @@
 import { UploadDropzone } from '@/lib/uploadthing'
 import '@uploadthing/react/styles.css'
 import Image from 'next/image'
-import { FormLabel } from './ui/form'
 import { useState } from 'react'
 import { X } from 'lucide-react'
 

@@ -51,10 +51,10 @@ const ServerSearch = ({ data }: IServerSearch) => {
 		setIsSearchOpened(false)
 
 		if (type === 'member')
-			return push(`/servers/${params.serverId}/conversations/${id}`)
+			return push(`/servers/${params?.serverId}/conversations/${id}`)
 
 		if (type === 'channel')
-			return push(`/servers/${params.serverId}/channels/${id}`)
+			return push(`/servers/${params?.serverId}/channels/${id}`)
 	}
 
 	return (
