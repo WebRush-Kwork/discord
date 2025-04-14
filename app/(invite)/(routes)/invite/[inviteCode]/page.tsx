@@ -2,11 +2,11 @@ import { currentProfile } from '@/lib/current-profile'
 import { db } from '@/lib/db'
 import { redirect } from 'next/navigation'
 
-interface IInviteCodePage {
+type TInviteCodePage = {
 	params: { inviteCode: string }
 }
 
-const InviteCodePage = async ({ params }: IInviteCodePage) => {
+const InviteCodePage = async ({ params }: TInviteCodePage) => {
 	const profile = await currentProfile()
 	const { inviteCode } = params
 
