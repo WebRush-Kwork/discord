@@ -1,13 +1,15 @@
 import { currentProfile } from '@/lib/current-profile'
 import { db } from '@/lib/db'
 import { redirect } from 'next/navigation'
+import { JSX } from 'react'
 
 interface IInviteCodePage {
 	params: { inviteCode: string }
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const InviteCodePage = async ({ params }: IInviteCodePage):Promise<any> => {
+const InviteCodePage = async ({
+	params,
+}: IInviteCodePage): Promise<JSX.Element | null> => {
 	const profile = await currentProfile()
 	const { inviteCode } = params
 
