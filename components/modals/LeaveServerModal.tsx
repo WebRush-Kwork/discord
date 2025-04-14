@@ -44,7 +44,7 @@ const LeaveServerModal = () => {
 					<DialogDescription className='text-rose-500 text-center'>
 						Are you sure you want to leave{' '}
 						<span className='font-semibold text-indigo-500'>
-							'{server?.name}'
+							{server?.name}
 						</span>{' '}
 						server?
 					</DialogDescription>

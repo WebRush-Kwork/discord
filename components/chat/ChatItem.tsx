@@ -85,7 +85,7 @@ const ChatItem = ({
 		window.addEventListener('keydown', onKeyDown)
 
 		return () => window.removeEventListener('keydown', onKeyDown)
-	}, [])
+	})
 
 	const onSubmit = async (values: z.infer<typeof formSchema>) => {
 		try {
@@ -105,7 +105,7 @@ const ChatItem = ({
 
 	useEffect(() => {
 		form.reset({ content })
-	}, [form, onSubmit, content])
+	}, [content])
 
 	const redirectToMember = () =>
 		currentMember.id !== member.id &&
