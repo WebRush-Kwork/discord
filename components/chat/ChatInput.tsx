@@ -13,6 +13,7 @@ import { useRouter } from 'next/navigation'
 
 interface IChatInput {
 	apiUrl: string
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	query: Record<string, any>
 	chatType: 'conversation' | 'channel'
 	name: string
