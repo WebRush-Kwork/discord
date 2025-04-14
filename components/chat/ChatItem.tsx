@@ -66,8 +66,7 @@ const ChatItem = ({
 	const isAdmin = member.role === MemberRole.ADMIN
 	const isModerator = member.role === MemberRole.MODERATOR
 	const isMessageAuthor = member.id === currentMember.id
-	const canMessageBeDeleted =
-		!isDeleted && (isAdmin || isModerator || isMessageAuthor)
+	const canMessageBeDeleted = true
 	const canMessageBeEdited = !isDeleted && isMessageAuthor && !fileUrl
 	const { onOpen } = useModalStore()
 	const params = useParams()
