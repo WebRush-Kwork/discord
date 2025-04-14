@@ -8,7 +8,7 @@ interface IInviteCodePage {
 
 const InviteCodePage = async ({ params }: IInviteCodePage) => {
 	const profile = await currentProfile()
-	const { inviteCode } = await params
+	const { inviteCode } = params
 
 	if (!profile || !inviteCode) return redirect('/')
 

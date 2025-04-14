@@ -11,7 +11,7 @@ const ServerIdLayout = async ({
 	params: { serverId: string }
 }) => {
 	const profile = await currentProfile()
-	const { serverId } = await params
+	const { serverId } = params
 
 	if (!profile) return redirect('/')
 

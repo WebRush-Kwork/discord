@@ -9,7 +9,7 @@ interface IMemberIdPage {
 
 const ServerPage = async ({ params }: IMemberIdPage) => {
 	const profile = await currentProfile()
-	const { serverId } = await params
+	const { serverId } = params
 
 	if (!profile) return new NextResponse('Unauthorized', { status: 401 })
 

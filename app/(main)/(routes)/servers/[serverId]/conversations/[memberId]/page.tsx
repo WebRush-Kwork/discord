@@ -18,7 +18,7 @@ interface IMemberIdPage {
 }
 
 const MemberIdPage = async ({ params, searchParams }: IMemberIdPage) => {
-	const { memberId, serverId } = await params
+	const { memberId, serverId } = params
 	const { video } = await searchParams
 	const profile = await currentProfile()
 

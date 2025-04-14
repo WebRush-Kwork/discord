@@ -17,7 +17,7 @@ interface IChannelIdPage {
 
 const ChannelIdPage = async ({ params }: IChannelIdPage) => {
 	const profile = await currentProfile()
-	const { channelId, serverId } = await params
+	const { channelId, serverId } = params
 
 	if (!profile) return new NextResponse('Unauthorized', { status: 401 })
 

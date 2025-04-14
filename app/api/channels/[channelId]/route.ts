@@ -11,7 +11,7 @@ export async function PATCH(
 		const profile = await currentProfile()
 		const { searchParams } = new URL(req.url)
 		const serverId = searchParams.get('serverId')
-		const { channelId } = await params
+		const { channelId } = params
 		const { name, type } = await req.json()
 
 		if (!profile) return new NextResponse('Unauthorized', { status: 400 })
@@ -53,7 +53,7 @@ export async function DELETE(
 	try {
 		const profile = await currentProfile()
 		const { searchParams } = new URL(req.url)
-		const { channelId } = await params
+		const { channelId } = params
 		const serverId = searchParams.get('serverId')
 
 		if (!profile) return new NextResponse('Unauthorized', { status: 401 })

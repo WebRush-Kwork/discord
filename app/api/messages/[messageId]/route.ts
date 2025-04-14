@@ -11,7 +11,7 @@ export async function PATCH(
 		const { searchParams } = new URL(req.url)
 		const serverId = searchParams.get('serverId')
 		const channelId = searchParams.get('channelId')
-		const { messageId } = await params
+		const { messageId } = params
 		const { content } = await req.json()
 
 		if (!profile) return new NextResponse('Unauthorized', { status: 401 })
