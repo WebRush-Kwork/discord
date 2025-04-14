@@ -23,7 +23,6 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import FileUpload from '@/components/FileUpload'
 import { useRouter } from 'next/navigation'
-import { UploadDropzone } from '@/lib/uploadthing'
 
 const formSchema = z.object({
 	name: z.string().min(1),

@@ -21,6 +21,7 @@ export const SocketProvider = ({ children }: { children: React.ReactNode }) => {
 	const [isConnected, setIsConnected] = useState<boolean>(false)
 
 	useEffect(() => {
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		const socketInstance = new (ClientIO as any)(
 			process.env.NEXT_PUBLIC_SITE_URL!,
 			{
