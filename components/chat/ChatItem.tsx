@@ -105,7 +105,7 @@ const ChatItem = ({
 
 	useEffect(() => {
 		form.reset({ content })
-	}, [content])
+	}, [form, content])
 
 	const redirectToMember = () =>
 		currentMember.id !== member.id &&
