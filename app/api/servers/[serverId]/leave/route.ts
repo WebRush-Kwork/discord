@@ -21,7 +21,7 @@ export async function PATCH(
 				profileId: { not: profile.id },
 				members: { some: { profileId: profile.id } },
 			},
-			data: { members: { deleteMany: { id: profile.id } } },
+			data: { members: { deleteMany: { profileId: profile.id } } },
 		})
 
 		return NextResponse.json(server)

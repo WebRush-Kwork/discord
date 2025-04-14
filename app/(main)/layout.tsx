@@ -7,7 +7,7 @@ const ServerPageLayout = async ({
 }) => {
 	return (
 		<div className='h-full'>
-			<div className='max-sm:hidden md:flex h-full w-[72px] z-30 flex-col fixed inset-y-0'>
+			<div className='max-sm:hidden md:flex h-full w-[72px] z-10 flex-col fixed inset-y-0'>
 				<NavigationSidebar />
 			</div>
 			<main className='h-full md:pl-[72px]'>{children}</main>

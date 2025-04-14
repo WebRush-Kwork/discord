@@ -190,16 +190,16 @@ const ChatItem = ({
 					</Form>
 				)
 			)}
-			{canMessageBeDeleted && (
-				<div className='hidden group-hover:block transition'>
-					{canMessageBeEdited && (
-						<NavigationTooltip label='Edit'>
-							<Edit
-								className='absolute top-2 right-3 p-1 cursor-pointer bg-white dark:bg-zinc-800 border rounded-sm w-8 h-8'
-								onClick={() => setIsEditing(true)}
-							/>
-						</NavigationTooltip>
-					)}
+			<div className='hidden group-hover:block transition'>
+				{canMessageBeEdited && (
+					<NavigationTooltip label='Edit'>
+						<Edit
+							className='absolute top-2 right-3 p-1 cursor-pointer bg-white dark:bg-zinc-800 border rounded-sm w-8 h-8'
+							onClick={() => setIsEditing(true)}
+						/>
+					</NavigationTooltip>
+				)}
+				{canMessageBeDeleted && (
 					<NavigationTooltip label='Delete'>
 						<Trash
 							className={cn(
@@ -214,8 +214,8 @@ const ChatItem = ({
 							}
 						/>
 					</NavigationTooltip>
-				</div>
-			)}
+				)}
+			</div>
 		</div>
 	)
 }

@@ -39,10 +39,12 @@ const InitialModal = () => {
 		},
 	})
 	const isLoading = form.formState.isSubmitting
+	const { refresh } = useRouter()
 
 	const onSubmit = async (values: z.infer<typeof formSchema>) => {
 		try {
 			await axios.post('/api/servers', values)
+			refresh()
 		} catch (error) {
 			console.log(error)
 		}
@@ -50,7 +52,7 @@ const InitialModal = () => {
 
 	return (
 		<Dialog open>
-			<DialogContent className='fixed z-10'>
+			<DialogContent className='fixed z-10 top-[50%] left-[50%] !translate-[-50%]'>
 				<DialogHeader>
 					<DialogTitle>Customize your server</DialogTitle>
 					<DialogDescription>
@@ -78,7 +80,7 @@ const InitialModal = () => {
 							control={form.control}
 							name='name'
 							render={({ field }) => (
-								<div>
+								<div className='mt-4'>
 									<FormItem>
 										<FormLabel>Server name</FormLabel>
 										<FormControl>
@@ -90,7 +92,7 @@ const InitialModal = () => {
 							)}
 						/>
 						<DialogFooter>
-							<Button disabled={isLoading}>Send</Button>
+							<Button disabled={isLoading}>Create</Button>
 						</DialogFooter>
 					</form>
 				</Form>
