@@ -51,7 +51,7 @@ const InitialModal = () => {
 
 	return (
 		<Dialog open>
-			<DialogContent className='fixed z-10 top-[50%] left-[50%] !translate-[-50%]'>
+			<DialogContent className='fixed z-20 top-[50%] left-[50%] !translate-[-50%]'>
 				<DialogHeader>
 					<DialogTitle>Customize your server</DialogTitle>
 					<DialogDescription>
