@@ -1,6 +1,7 @@
 import ChatHeader from '@/components/chat/ChatHeader'
 import ChatInput from '@/components/chat/ChatInput'
 import ChatMessages from '@/components/chat/ChatMessages'
+import MediaRoom from '@/components/MediaRoom'
 import { getOrCreateConversation } from '@/lib/conversation'
 import { currentProfile } from '@/lib/current-profile'
 import { db } from '@/lib/db'
@@ -11,10 +12,14 @@ interface IMemberIdPage {
 		serverId: string
 		memberId: string
 	}
+	searchParams: {
+		video?: boolean
+	}
 }
 
-const MemberIdPage = async ({ params }: IMemberIdPage) => {
+const MemberIdPage = async ({ params, searchParams }: IMemberIdPage) => {
 	const { memberId, serverId } = await params
+	const { video } = await searchParams
 	const profile = await currentProfile()
 
 	if (!profile) return redirect('/')
@@ -46,23 +51,29 @@ const MemberIdPage = async ({ params }: IMemberIdPage) => {
 				type='conversation'
 				imageUrl={otherMember.profile.imageUrl}
 			/>
-			<ChatMessages
-				member={member}
-				name={otherMember.profile.name}
-				chatId={conversation.id}
-				type='conversation'
-				apiUrl='/api/direct-messages'
-				paramKey='conversationId'
-				paramValue={conversation.id}
-				socketUrl='/api/socket/direct-messages'
-				socketQuery={{ conversationId: conversation.id }}
-			/>
-			<ChatInput
-				chatType='conversation'
-				name={otherMember.profile.name}
-				apiUrl='/api/socket/direct-messages'
-				query={{ conversationId: conversation.id }}
-			/>
+			{!video ? (
+				<>
+					<ChatMessages
+						member={member}
+						name={otherMember.profile.name}
+						chatId={conversation.id}
+						type='conversation'
+						apiUrl='/api/direct-messages'
+						paramKey='conversationId'
+						paramValue={conversation.id}
+						socketUrl='/api/socket/direct-messages'
+						socketQuery={{ conversationId: conversation.id }}
+					/>
+					<ChatInput
+						chatType='conversation'
+						name={otherMember.profile.name}
+						apiUrl='/api/socket/direct-messages'
+						query={{ conversationId: conversation.id }}
+					/>
+				</>
+			) : (
+				<MediaRoom chatId={conversation.id} isAudio={true} isVideo={true} />
+			)}
 		</div>
 	)
 }

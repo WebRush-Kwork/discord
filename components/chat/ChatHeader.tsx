@@ -2,6 +2,7 @@ import { Hash } from 'lucide-react'
 import MobileToggle from '@/components/MobileToggle'
 import UserAvatar from '@/components/UserAvatar'
 import SocketIndicator from '@/components/SocketIndicator'
+import ChatVideoButton from './ChatVideoButton'
 
 interface IChatHeader {
 	serverId: string
@@ -24,7 +25,10 @@ const ChatHeader = ({ name, imageUrl, serverId, type }: IChatHeader) => {
 					{name}
 				</p>
 			</div>
-			<SocketIndicator />
+			<div className='flex items-center justify-center'>
+				{type === 'conversation' && <ChatVideoButton />}
+				<SocketIndicator />
+			</div>
 		</div>
 	)
 }
