@@ -53,7 +53,9 @@ const InitialModal = () => {
 			<DialogContent className='fixed z-10'>
 				<DialogHeader>
 					<DialogTitle>Customize your server</DialogTitle>
-					<DialogDescription>Give</DialogDescription>
+					<DialogDescription>
+						Give your server unique personality
+					</DialogDescription>
 				</DialogHeader>
 				<Form {...form}>
 					<form onSubmit={form.handleSubmit(onSubmit)}>

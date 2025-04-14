@@ -18,10 +18,8 @@ const InviteCodePage = async ({ params }: IInviteCodePage) => {
 
 	if (existingServer) return redirect(`/servers/${existingServer.id}`)
 
-	const foundServer = await db.server.findFirst({ where: { inviteCode } })
-
 	const server = await db.server.update({
-		where: { id: foundServer?.id, inviteCode },
+		where: { inviteCode },
 		data: { members: { create: [{ profileId: profile.id }] } },
 	})
 
